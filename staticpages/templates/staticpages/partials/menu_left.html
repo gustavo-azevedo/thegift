@@ -1,0 +1,15 @@
+{% load static %}
+<div class="sidebar">
+    <div class="d-flex flex-column align-items-flex-start ml-5">
+        <a href="{% url 'home' %}"><img src="{%static '/images/logo_white.svg' %}" width="300px" style="margin-left: 25px;"/></a>
+        
+        <div class="d-flex flex-column mt-5
+        ">
+            <a href="{% url 'my_gifts' %}" class="white-link fw-bold"><i class="fa-solid fa-gift mr-2"></i>Minha lista</a>
+            <a href="{% url 'friends' %}" class="white-link fw-bold"><i class="fa-solid fa-user-group mr-2"></i>Amigos</a>
+            <a href="{% url 'explore' %}" class="white-link fw-bold"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>Explorar</a>
+            
+        </div> 
+    
+    </div>
+</div>

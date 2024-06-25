@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Home 
+{% endblock title %} 
+{% block content %}
+<div class="px-4 my-5 text-center">
+  <img src="{%static '/images/logo.svg' %}" />
+</div>
+<div class="container_create" >
+  <div class="form-holder">
+    <p class="fs-6 fw-bold">Entre na sua conta:</p>
+    <form method="POST" class="form-group creation-form" action="{% url 'login' %}" style="align-items: center;
+    display: flex;
+    flex-direction: column;">
+      {% csrf_token %} {{ form.as_div }}
+      <div id="forget-pass-holder">
+        <p class="fs-6">Ainda não tem uma conta?  
+          <a id="redirect-create-account" class="green-link" href="{% url 'create_account' %}">
+            Cadastre-se
+          </a>
+        <br/>
+        <button type="submit" class="btn pink-btn btn-lg" style="width:265px">Entrar</button>
+      </div>
+    </form>
+  </div>
+  <div id="redirect-create-account-holder" class="py-3">
+    
+</p>
+  </div>
+</div>
+{% endblock content %}

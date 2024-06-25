@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="px-4 my-5 text-center" >
+    <img src="{%static '/images/logo.svg' %}"/>
+    <p class="fs-2 fw-bold">Descubra o que seus amigos mais desejam e receba sugestões de produtos</p>
+    <p class="fs-3">Com o The Gift, você pode descobrir os presentes sugeridos para seus amigos, 
+        além de receber sugestões de produtos de acordo com as sua preferências</p>
+</div>
+
+<div class="my-3 text-center" >
+    
+    <a href="{% url 'create_account' %}" class="btn pink-btn btn-round btn-lg">
+        Cadastre-se Já!
+    </a>
+    <p class="fs-4 p-inside-box">Já possui cadastro? <a href="{% url 'login' %}" class="purple-link" >Entre aqui</a></p>
+
+    <img src="{%static '/images/jumping_mascot.svg' %}" class="icon-image"/>
+    
+</div>
+{% endblock content %}
+

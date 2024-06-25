@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Home 
+{% endblock title %} 
+{% block content %}
+
+<div class="header">
+  {% include 'staticpages/partials/menu_left.html' %}
+  {% include 'staticpages/partials/menu_right.html' %}
+
+</div>
+<div class="container">
+
+  <form action="{% url 'explore' %}" class="py-4 px-3">
+    <div class="input-group search">
+      <input type="search" id="id_query" class="form-control" name="query" />
+      <span class="input-group-addon">
+        <button type="button" type="submit" style="border: none">
+          <i class="fas fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </form>
+
+  <section class="lista-de-cards">
+    {% for people in people_list %}
+    <article class="card_people d-flex justify-content-between mt-5">
+      <div class="d-flex ">
+      <div class=" d-flex align-items-center justify-content-center">
+        <img src="{% static '/images/user_icon.svg' %}" style="width: 50%">
+      </div>
+      <div>
+        <p class="fs-1 fw-bold title">{{ people.name }}</p>
+        <p class="fs-4">@{{people.user }}</p>
+
+        <div>
+          {% if people.roupas >= 100 %}
+          <p class="badge purple_badge">Roupas</p>
+          {% endif %} {% if people.fitness >= 100 %}
+          <p class="badge purple_badge">Fitness</p>
+          {% endif %} {% if people.beleza >= 100 %}
+          <p class="badge purple_badge">Beleza</p>
+          {% endif %} {% if people.eletronicos >= 100 %}
+          <p class="badge purple_badge">Eletrônicos</p>
+          {% endif %} {% if people.outros >= 100 %}
+          <p class="badge purple_badge">Outros</p>
+          {% endif %}
+        </div>
+        <div>
+        </div>
+      </div>
+
+    </div>
+      <div class="d-flex">
+        <a href="{% url 'detail_people' people.user_id %}" class="pink-btn btn follow-btn">Ver perfil</a>
+      </div>
+      
+    </article>
+    {% endfor %}
+  </section>
+</div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block title %} 
+{{ people.name}} 
+{% endblock title%}
+{% block content %}
+
+<div class="header">
+        {% include 'staticpages/partials/menu_left.html' %}
+        {% include 'staticpages/partials/menu_right.html' %}
+    
+ 
+</div>
+
+<div class="text-center d-flex align-items-center">
+    <div class=" profile-header">
+        <img src="{% static '/images/user_icon.svg' %}">
+      <p class="fs-1 fw-bold">{{people.name}}</p>
+      <p class="fs-4">@{{people.user }}</p>
+      <div class="">
+        {%if is_friend%}
+        <a href="{% url 'friend_request' people.user_id %}" class="btn purple-outline-btn">Deixar de Seguir</a>
+        {%else%}
+        <a href="{% url 'friend_request' people.user_id %}" class="btn purple-btn"
+          >Seguir</a
+        >
+        {%endif%}
+      </div>
+    </div>
+</div>
+
+<div class="container">
+    {% include 'gifts/partials/gifts_cards.html' %}
+
+</div>
+{% endblock content %}

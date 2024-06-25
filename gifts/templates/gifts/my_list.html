@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Home 
+{% endblock title %} 
+{% block content %}
+
+<div class="header">
+    {% include 'staticpages/partials/menu_left.html' %}
+    {% include 'staticpages/partials/menu_right.html' %}
+
+</div>
+
+<div class="container">
+    <div class="searchbar">
+        <form action="{% url 'my_gifts' %}" class="py-4 px-3">
+            <div class="input-group search">
+            <input type="search" id="id_query" class="form-control" name="query" />
+            <span class="input-group-addon">
+                <button type="button" type="submit" style="border: none">
+                <i class="fas fa-search"></i>
+                </button>
+            </span>
+            </div>
+        </form>
+    </div>
+    {% include 'gifts/partials/gifts_cards.html' %}
+</div>
+{% endblock content %}

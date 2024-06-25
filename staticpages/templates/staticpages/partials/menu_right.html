@@ -1,0 +1,22 @@
+{% load static %}
+<div class="sidebar_right">
+    <p class="fs-1 title fw-bold">Atualizações de amigos</p>
+    <div class="d-flex flex-column p-10">
+        {%for activity in friends_activity%}
+        <div class="mx-4 my-3 d-flex flex-column">
+            <div class="d-flex">
+                
+                <img src="{% static '/images/user_icon.svg' %}" width="20px"> 
+                <a href="{% url 'detail_people' activity.person_id %}"  class="fw-bold" style="margin-left:15px; margin-bottom: -5px; color:#E8E9EB ">{{activity.name}}</a>
+            </div>
+
+            <p>
+                <img src="{% static '/images/love_small_icon.svg' %}"> Amou 
+                <a href="{{activity.last_gift.loja}}" class="fw-bold">{{activity.last_gift.name}}</a>
+            </p>
+
+        </div>
+        {%endfor%}
+        
+    </div>
+</div>

@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Home 
+{% endblock title %} 
+{% block content %}
+
+<div class="header">
+  {% include 'staticpages/partials/menu_left.html' %}
+  {% include 'staticpages/partials/menu_right.html' %}
+
+</div>
+
+
+<div class="px-4 my-5 text-center main d-flex justify-content-center">
+  <section class=" text-center tab-content">
+    {%if gifts_list%}
+      {% for gift in gifts_list%}
+
+      <div class="card tindercard  tab-pane fade {% if forloop.counter == 1 %}in active{% endif %}" 
+      id = "gift_idx_{{ forloop.counter0 }}" category="{{gift.cat}}" data-id= "{{gift.id}}" >
+        <div class="tindercard-img"><img class="card-img-top" src="{{ gift.img }}" alt="{{ gift.name }}"></div>
+        <div class="card-body">
+          <a href="{{ gift.loja }}" class="fs-1 fw-bold card-title" style="color: #E8E9EB;">{{ gift.name }}</a>
+          <div>
+            <a
+            data-toggle="tab" 
+            data-counter="{{ forloop.counter0 }}"
+            data-type="love"
+            
+            href="#gift_idx_{{ forloop.counter0| add:1}}"
+            onclick="toggleTabTinder(this)"><img src="{% static '/images/love_icon.svg' %}" alt="Amei"></a>
+            
+            <a  data-toggle="tab" 
+            data-counter="{{ forloop.counter0 }}"
+            data-type="like"
+
+            href="#gift_idx_{{ forloop.counter0| add:1}}"
+            onclick="toggleTabTinder(this)"><img src="{% static '/images/like_icon.svg' %}" alt="Gostei"></a>
+            <a  data-toggle="tab" 
+            data-counter="{{ forloop.counter0 }}"
+            href="#gift_idx_{{ forloop.counter0| add:1}}"
+            data-type="hate"
+
+            onclick="toggleTabTinder(this)"><img src="{% static '/images/hate_icon.svg' %}" alt="Odiei"></a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      <div id="no_products" class="tab-pane fade">
+        <img src="{% static '/images/hands_mascot.svg' %}">
+        <h4>Parece que não temos mais produtos para te mostrar agora...</h4>
+      </div>
+    {% else %}
+    <div id="no_products" class="">
+      <img src="{% static '/images/hands_mascot.svg' %}">
+      <h4>Parece que não temos mais produtos para te mostrar agora...</h4>
+    </div>
+    {%endif%}
+
+</section>
+    
+</div>
+<form id="points_data_form" method="POST" action="{% url 'home' %}">
+  {% csrf_token %}
+  <input type="hidden" name="points_counter" id="points_counter" value="{{ points_dict }}"> 
+</form>
+
+<script>
+  window.addEventListener("beforeunload", function (e) { 
+            $.ajax({
+                type: "POST",
+                url: "/home/",
+                data: $('#points_data_form').serialize(),
+                success: function(response) {
+                    console.log('Form submitted successfully');
+                    // Handle success response if needed
+                },
+                error: function(error) {
+                    console.error('Error submitting form:', error);
+                    // Handle error response if needed
+                }
+            });
+        });
+  </script>
+{% endblock content %}
+
+

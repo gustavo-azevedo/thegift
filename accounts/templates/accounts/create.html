@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="px-4 my-5 text-center">
+    <img src="{%static '/images/logo.svg' %}" />
+</div>
+
+<div class="container_create">
+    <form method="POST" class="tab-content form-group creation-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div id="create-account-1" class="tab-pane fade in active">
+            <p class="fs-2 fw-bold"> Seus dados básicos:</p>
+            <div class="field-holder">
+                {{ form.username.errors }}
+                <label for="{{ form.username.id_for_label }}"></label>
+                {{ form.username }}
+            </div>
+            <div class="field-holder">
+                {{ form.email.errors }}
+                <label for="{{ form.email.id_for_label }}"></label>
+                {{ form.email }}
+            </div>
+            <div class="field-holder">
+                {{ form.password1.errors }}
+                <label for="{{ form.password1.id_for_label }}"></label>
+                {{ form.password1 }}
+            </div>
+            <div class="field-holder">
+                {{ form.password2.errors }}
+                <label for="{{ form.password2.id_for_label }}"></label>
+                {{ form.password2 }}
+            </div>
+            
+            <div class="btn-wrap text-center">
+                <a class="btn pink-btn btn-lg" data-toggle="tab" href="#create-account-2"
+                    onclick="toggleTab(this);">Cadastrar-se</a>
+            </div>
+        </div>
+
+        <div id="create-account-2" class="tab-pane fade">
+            <div class="field-holder">
+                {{ form.name.errors }}
+                <label class="fw-bold" for="{{ form.name.id_for_label }}">Nome</label>
+                {{ form.name }}
+            </div>
+            <div class="field-holder" class="select-group">
+                {{ form.bithday.errors }}
+                <label for="{{ form.bithday.id_for_label }}" class="fw-bold">Aniversário</label>
+                {{ form.birthday }}
+            </div>
+            <div class="field-holder">
+                {{ form.gender.errors }}
+                <label for="{{ form.gender.id_for_label }}" class="fw-bold">Gênero</label>
+                {{ form.gender }}
+            </div>
+
+            <div class="btn-wrap text-center py-3">
+                <a class="btn purple-outline-btn btn-lg" data-toggle="tab" href="#create-account-1"
+                    onclick="toggleTab(this);">Anterior</a>
+                <a class="btn purple-btn btn-lg" data-toggle="tab" href="#create-account-3"
+                    onclick="toggleTab(this);">Próximo</a>
+            </div>
+        </div>
+
+        <div id="create-account-3" class="tab-pane fade">
+            <div class="field-holder">
+                {{ form.size.errors }}
+                <label for="{{ form.size.id_for_label }}" class="fw-bold"> Qual é a sua medida? </label>
+                {{ form.size }}
+            </div>
+            <div class="btn-wrap text-center py-3">
+                <a class="btn purple-outline-btn btn-lg" data-toggle="tab" href="#create-account-2"
+                    onclick="toggleTab(this);">Anterior</a>
+                <a class="btn purple-btn btn-lg" data-toggle="tab" href="#create-account-4"
+                    onclick="toggleTab(this);">Próximo</a>
+            </div>
+        </div>
+
+        <div id="create-account-4" class="tab-pane fade">
+            <div class="field-holder">
+                
+                <label for="" class="fw-bold"> Quais são seus interesses? </label>
+                {{ form.interests }}
+
+            </div>
+            <div class="btn-wrap text-center py-3">
+                <a class="btn purple-outline-btn btn-lg" data-toggle="tab" href="#create-account-3"
+                    onclick="toggleTab(this);">Anterior</a>
+                <a class="btn purple-btn btn-lg" data-toggle="tab" href="#create-account-5"
+                    onclick="toggleTab(this);">Próximo</a>
+            </div>
+        </div>
+
+
+        <div id="create-account-5" class="tab-pane fade">
+            <div class="field-holder">
+                {{ form.style.errors }}
+                <label for="{{ form.style.id_for_label }}" class="fw-bold" > Qual o seu estilo? </label>
+                {{ form.style }}
+            </div>
+            <div class="btn-wrap text-center py-3">
+                <a class="btn purple-outline-btn btn-lg" data-toggle="tab" href="#create-account-4"
+                    onclick="toggleTab(this);">Anterior</a>
+                <a class="btn purple-btn btn-lg" data-toggle="tab" href="#create-account-6"
+                    onclick="toggleTab(this);">Próximo</a>
+            </div>
+        </div>
+
+        <div id="create-account-6" class="tab-pane fade">
+            <img src="{%static '/images/jumping_mascot.svg' %}" />
+            <p class="fs-1 fw-bold">Seu cadastro foi feito com
+                sucesso!</p>
+            
+            <div class="btn-wrap text-center">
+                <a class="btn purple-outline-btn btn-lg" data-toggle="tab" href="#create-account-3"
+                    onclick="toggleTab(this);">Anterior</a>
+                <button type="submit" class="btn purple-btn btn-lg"> Finalizar </button>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+{% endblock content %}

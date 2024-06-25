@@ -1,0 +1,17 @@
+<div class="giftcard-list d-flex">
+    {% for gift in gifts_list %}
+    <a href="{{ gift.loja }}" class="fs-1 fw-bold" style="color: #E8E9EB;">
+    <div class="card giftcard">
+        <div class="giftcard-img">
+            <img class="card-img-top" src="{{ gift.img }}" alt="{{ gift.name }}">
+        </div>
+        <div class="card-body">
+
+            <h5 class="card-title">{{ gift.name }}</h5>
+        
+
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</div>

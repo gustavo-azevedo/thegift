@@ -1,0 +1,270 @@
+$background-white : #E8E9EB;
+$light-grey : #d7d8da;
+
+$black: #3D3B30;
+$dark-purple: #2F004F;
+$purple: #5F0A87;
+$light-purple: #C37FE2;
+$pink: #B27092;
+
+body{
+    background-color: $background-white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    margin-right: 300px;
+    margin-left: 300px;
+    width: 800px;
+
+}
+
+.pink-btn{
+    background-color: $pink;
+    color: $background-white;
+    width: 200px
+}
+
+.purple-btn{
+    background-color: $purple;
+    color: $background-white;
+    width: 200px
+}
+.purple-outline-btn{
+    border: 2px solid $purple;
+    color: $dark-purple;
+    width: 200px
+}
+
+
+.p-inside-box{
+    color: $pink;
+}
+
+.pink-link{
+    color: $pink;
+}
+.purple-link{
+    color: $dark-purple;
+}
+
+.form-holder{
+    padding: 10px;
+}
+
+.form-group input{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px $pink;
+    border: 1px solid $pink;
+}
+
+.form-group input:hover, .form-group input:focus{
+    outline: 2px solid $pink;
+}
+
+.form-group label{
+    font-weight: 100;
+    width: 100%;
+    display: block;
+    font-size: 20px;
+}
+
+.form-group select{
+    height: 40px;
+    margin: 0px 10px 10px 0px;
+    box-shadow: 1px 1px $pink;
+    border: 1px solid $pink;
+    background-color: #FFF;
+}
+
+.form-group input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    box-shadow: none;
+}
+
+
+.btn{
+    margin-bottom: 5px;
+}
+
+.navbar-collapse{
+    height: 560px
+}
+
+.creation-form input{
+    width: 600px;
+    height: 50px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px $pink;
+    border: 2px solid $pink;
+    border-radius: 20px;
+}
+.creation-form input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    box-shadow: none;
+}
+
+.creation-form input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    box-shadow: none;
+}
+
+.creation-form select{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px $pink;
+    border: 2px solid $pink;
+    border-radius: 20px;
+}
+
+
+.search_title{
+    color: $pink;
+}
+.img_search{
+    width: 300px;
+}
+.circle-singleline {
+      width: 100px;
+      height: 100px;
+      margin-left: 35%;
+      border-radius: 50%;
+      line-height: 100px; 
+      background: $dark-purple;
+      color: $background-white;
+}
+
+.btn_side{
+    width: 50px;
+    margin-top: 20px;
+}
+
+.circle-inline {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px; 
+    background: $dark-purple;
+    color: $background-white;
+}
+
+.card{
+    background-color: $purple;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.border_title{
+    margin: 0px !important;
+    width: 100%;
+    background-color: $dark-purple;
+    color: $background-white;
+    font-size: larger;
+    padding-left: 10px;
+    
+}
+
+.tindercard{
+    width:500px;
+    height: 600px;
+}
+
+.tindercard-img{
+    height: 400px;
+    overflow: hidden;
+}
+.sidebar{
+    background-color: $dark-purple;
+    color: $background-white;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    width: 300px;
+
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sidebar_right{
+    background-color: $dark-purple;
+    color: $background-white;
+    float: right;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0; 
+    right: 0;
+    width: 300px;
+
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.purple_badge{
+    background-color: $purple;
+}
+
+.card_people{
+    background-color: $light-grey;
+}
+
+.follow-btn{
+    height: 30px;
+    margin:10px;
+    width: 80px;
+}
+
+.profile-header{
+    height: 300px;
+    color: $background-white;
+    background-color: $light-purple;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.white-link{
+    color: $background-white;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.giftcard-img{
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 4%;
+}
+.giftcard{
+    width: 200px;
+    height: 300px;
+    color: $background-white;
+    
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+.giftcard-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container_create{
+    display: flex;
+    justify-content: center;
+}
